@@ -17,4 +17,14 @@ export const regusterSchema= yup.object({
 }).required();
 
 
+export const loginSchema= yup.object({
 
+  identifier: yup.string()
+  .required("Email is required"),
+  // .matches(/^[^$]+@[+@]+\.[+^@ .]{2,}$/,"Not a valid email address."),
+  
+  password: yup.string()
+  .required("Passowrd is required")
+  .min(8,"Passowrd should be at least 8 characters."),
+
+}).required();

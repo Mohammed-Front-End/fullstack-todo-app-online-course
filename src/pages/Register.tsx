@@ -53,8 +53,7 @@ const RegisterPage = () => {
     }
   }
 
-  console.log("errors,",errors);
-  
+  // console.log("errors,",errors);
   // ** Renders
   const renderRegisterForm = REGISTER_FORM.map(({name,placeholder,type,validation},idx )=>(
     <div key={idx}>
@@ -62,12 +61,6 @@ const RegisterPage = () => {
       { errors[name] && <InputErrorMessage msg={errors[name]?.message}/>}
     </div>
   ));
-
-
-
-
-
-
 
 
   return (
