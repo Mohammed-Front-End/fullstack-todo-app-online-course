@@ -5,7 +5,7 @@ import InputErrorMessage from "../components/ui/InputErrorMessage";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginSchema } from "../validation";
+import {  regusterSchema } from "../validation";
 import axiosInstance from "../config/axios.config";
 import toast from "react-hot-toast";
 import { AxiosError } from "axios";
@@ -14,16 +14,11 @@ import { IErrorResponse } from "../interfaces";
 interface IFormInput {
   identifier: string;
   password: string;
+  
 }
 const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IFormInput>({
-    resolver: yupResolver(loginSchema),
-  });
+  const {register,handleSubmit,formState: { errors },} = useForm<IFormInput>({resolver: yupResolver(regusterSchema),});
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     console.log("DATA", data);

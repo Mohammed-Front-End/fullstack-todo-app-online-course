@@ -42,23 +42,13 @@ interface ButtonProps
   type?: "submit" | "button" | "reset";
 }
 
-const Button = ({
-  variant,
-  size,
-  fullWidth,
-  isLoading,
-  className,
-  children,
-  type,
-  ...props
-}: ButtonProps) => {
+const Button = ({variant,size,fullWidth,isLoading,className,children,type,...props}: ButtonProps) => {
   return (
     <button
       type={type}
-      className={cn(buttonVariants({ variant, size, fullWidth, className }))}
-      {...props}
-      disabled={isLoading}
-    >
+      className={cn(buttonVariants({ variant, size, fullWidth, className }))}{...props}
+      disabled={isLoading}>
+        
       {isLoading ? (
         <svg
           className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
